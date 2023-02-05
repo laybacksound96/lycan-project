@@ -4,6 +4,8 @@ import React from "react";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Nanum+Myeongjo:wght@400;700&display=swap');
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -34,7 +36,9 @@ footer, header, hgroup, main, menu, nav, section {
     display: none;
 }
 body {
+  font-family: 'Nanum Gothic', sans-serif;
   line-height: 1;
+  background-color: rgb(30, 30, 30);
 }
 menu, ol, ul {
   list-style: none;

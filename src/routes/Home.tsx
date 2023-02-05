@@ -2,18 +2,30 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 const Container = styled.div`
   padding: 0px 20px;
-  max-width: 480px;
+  max-width: 90%;
   margin: 0 auto;
+  margin-top: 200px;
+  background-color: #424242;
+  border-radius: 5px;
 `;
 const UserList = styled.ul``;
 const User = styled.li`
-  background-color: #6a6a6a;
+  display: flex;
+
+  /* background-color: #6a6a6a; */
   color: #ffffff;
   border-radius: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding: 10px;
 `;
 const Checkbox = styled.input.attrs({ type: "checkbox" })``;
+
+const NameDiv = styled.div`
+  display: flex;
+  min-width: 200px; // @todo 이거 좀 나은방식으로 고칠 수 없나?
+  /* background-color: blue; */
+`;
+
 interface charInfo__interface {
   ServerName: string;
   CharacterName: string;
@@ -29,7 +41,7 @@ function Home() {
     (async () => {
       const url =
         "https://developer-lostark.game.onstove.com/characters/" +
-        "제로짠" +
+        "묘필리" +
         "/siblings";
       const infoData = await (
         await fetch(url, {
@@ -54,7 +66,7 @@ function Home() {
       <UserList>
         {charInfo.map((user) => (
           <User key={user.CharacterName}>
-            {user.CharacterName}
+            <NameDiv>{user.CharacterName}</NameDiv>
             <Checkbox />
             <Checkbox />
             <Checkbox />
