@@ -10,7 +10,6 @@ const MainFrame = styled.div`
 const ToDoFrame = styled.div`
   background-color: #c5c5c5;
   width: 720px;
-  height: 720px;
 `;
 const HeaderContainer = styled.div`
   background-color: #aabbcb;

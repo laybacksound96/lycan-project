@@ -1,13 +1,24 @@
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import styled from "styled-components";
+import {
+  DragDropContext,
+  Draggable,
+  DraggingStyle,
+  Droppable,
+  NotDraggingStyle,
+} from "react-beautiful-dnd";
 
-const Card = styled.div`
-  display: flex;
-  flex-direction: row;
+import ColumnCard from "./ColumnCard";
 
-  background-color: #b2ca85;
-`;
+function getStyle(style: DraggingStyle | NotDraggingStyle) {
+  if (style?.transform) {
+    const axisLockY = `translate(0px,${style.transform.split(",").pop()}`;
 
+    return {
+      ...style,
+      transform: axisLockY,
+    };
+  }
+  return style;
+}
 const toDos = ["a", "b", "c", "d", "e", "f"];
 
 function ToDoColumn() {
@@ -17,27 +28,21 @@ function ToDoColumn() {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div>
-        <Droppable droppableId="one">
-          {(magic) => (
-            <ul ref={magic.innerRef} {...magic.droppableProps}>
+        <Droppable droppableId="one" direction="vertical">
+          {(provided) => (
+            <ul ref={provided.innerRef} {...provided.droppableProps}>
               {toDos.map((toDo, index) => (
                 <Draggable draggableId={toDo} index={index}>
-                  {(magic) => (
-                    <Card
-                      ref={magic.innerRef}
-                      {...magic.dragHandleProps}
-                      {...magic.draggableProps}
-                    >
-                      <div style={{ minWidth: "130px" }}>{toDo}</div>
-
-                      <input type="checkbox" style={{ minWidth: "50px" }} />
-                      <input type="checkbox" style={{ minWidth: "50px" }} />
-                      <input type="checkbox" style={{ minWidth: "50px" }} />
-                    </Card>
+                  {(provided) => (
+                    <ColumnCard
+                      provided={provided}
+                      toDo={toDo}
+                      style={getStyle(provided.draggableProps.style!)}
+                    />
                   )}
                 </Draggable>
               ))}
-              {magic.placeholder}
+              {provided.placeholder}
             </ul>
           )}
         </Droppable>

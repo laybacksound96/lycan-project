@@ -1,12 +1,25 @@
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import styled from "styled-components";
+import {
+  DragDropContext,
+  Draggable,
+  Droppable,
+  DraggingStyle,
+  NotDraggingStyle,
+} from "react-beautiful-dnd";
 
-const RowCard = styled.div`
-  background-color: antiquewhite;
-`;
+import RowCard from "./RowCard";
 
 const Row = ["A", "B", "C"];
 
+function getStyle(style: DraggingStyle | NotDraggingStyle) {
+  if (style?.transform) {
+    const axisLockX = `${style.transform.split(",").shift()}, 0px)`;
+    return {
+      ...style,
+      transform: axisLockX,
+    };
+  }
+  return style;
+}
 function CheckBoxRow() {
   const onDragEnd = () => {
     return;
@@ -16,34 +29,24 @@ function CheckBoxRow() {
       <div style={{ display: "flex", backgroundColor: "blue" }}>
         <div style={{ minWidth: "130px" }}> </div>
         <Droppable droppableId="one" direction="horizontal">
-          {(magic) => (
+          {(provided) => (
             <ul
               style={{ display: "flex" }}
-              ref={magic.innerRef}
-              {...magic.droppableProps}
+              ref={provided.innerRef}
+              {...provided.droppableProps}
             >
               {Row.map((Row, index) => (
                 <Draggable draggableId={Row} index={index}>
-                  {(magic) => (
+                  {(provided) => (
                     <RowCard
-                      ref={magic.innerRef}
-                      {...magic.dragHandleProps}
-                      {...magic.draggableProps}
-                    >
-                      <div
-                        style={{
-                          minWidth: "50px",
-                          textAlign: "center",
-                          margin: 3,
-                        }}
-                      >
-                        {Row}
-                      </div>
-                    </RowCard>
+                      Row={Row}
+                      parentProvided={provided}
+                      style={getStyle(provided.draggableProps.style!)}
+                    />
                   )}
                 </Draggable>
               ))}
-              {magic.placeholder}
+              {provided.placeholder}
             </ul>
           )}
         </Droppable>
