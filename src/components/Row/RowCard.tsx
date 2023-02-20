@@ -3,7 +3,20 @@ import {
   DraggingStyle,
   NotDraggingStyle,
 } from "react-beautiful-dnd";
+import styled from "styled-components";
 
+const Name = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 20px;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: ease-in-out 0.1s;
+  }
+`;
 interface IRowCardProp {
   Row: string;
   parentProvided: DraggableProvided;
@@ -12,14 +25,14 @@ interface IRowCardProp {
 
 function RowCard({ Row, parentProvided, style }: IRowCardProp) {
   return (
-    <div
+    <Name
       ref={parentProvided.innerRef}
       {...parentProvided.dragHandleProps}
       {...parentProvided.draggableProps}
       style={style}
     >
       {Row}
-    </div>
+    </Name>
   );
 }
 export default RowCard;

@@ -116,3 +116,8 @@ export const CharacterState = atom({
   key: "CharacterInfo",
   default: ["a"],
 });
+
+export const RowState = atom({
+  key: "RowState",
+  default: ["A", "B", "C"],
+});

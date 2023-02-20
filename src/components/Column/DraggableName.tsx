@@ -4,12 +4,36 @@ import {
   DraggingStyle,
   NotDraggingStyle,
 } from "react-beautiful-dnd";
+import styled from "styled-components";
 
 interface INameProps {
   boardId: string;
   value: string;
   index: number;
 }
+
+// @todo2 width는 Row쪽 witdh와 공유해야 함
+const ShareWidthDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+`;
+const Name = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: ease-in-out 0.1s;
+  }
+`;
+const NameBox = styled.div`
+  display: flex;
+`;
 
 function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
   if (style?.transform) {
@@ -27,17 +51,23 @@ function DraggableName({ boardId, value, index }: INameProps) {
   return (
     <Draggable draggableId={boardId} index={index}>
       {(provided) => (
-        <div
+        <NameBox
           ref={provided.innerRef}
           {...provided.dragHandleProps}
           {...provided.draggableProps}
           style={AxisLocker(provided.draggableProps.style!)}
         >
-          {value}
-          <input type="checkbox" />
-          <input type="checkbox" />
-          <input type="checkbox" />
-        </div>
+          <Name>{value}</Name>
+          <ShareWidthDiv>
+            <input type="checkbox" />
+          </ShareWidthDiv>
+          <ShareWidthDiv>
+            <input type="checkbox" />
+          </ShareWidthDiv>
+          <ShareWidthDiv>
+            <input type="checkbox" />
+          </ShareWidthDiv>
+        </NameBox>
       )}
     </Draggable>
   );
