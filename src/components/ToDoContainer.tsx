@@ -5,7 +5,6 @@ import CheckBoxRow from "./Row/CheckBoxRow";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #9eaa88;
   padding: 15px;
   width: 100%;
   height: 90%;

@@ -38,7 +38,7 @@ footer, header, hgroup, main, menu, nav, section {
 body {
   font-family: 'Nanum Gothic', sans-serif;
   line-height: 1;
-  background-color: rgb(30, 30, 30);
+  background-color: ${(props) => props.theme.backgroundSubColor};
 }
 menu, ol, ul {
   list-style: none;

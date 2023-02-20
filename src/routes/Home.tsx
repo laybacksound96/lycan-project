@@ -9,7 +9,8 @@ const MainFrame = styled.div`
   align-items: center;
 `;
 const ToDoFrame = styled.div`
-  background-color: #c5c5c5;
+  background-color: ${(props) => props.theme.backgroundColor};
+  border-radius: 15px;
   width: 720px;
 `;
 const HeaderContainer = styled.div`

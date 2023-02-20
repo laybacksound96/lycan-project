@@ -10,7 +10,8 @@ interface ICardProps {
 }
 
 const Area = styled.div`
-  background-color: wheat;
+  color: ${(props) => props.theme.textColor};
+  font-weight: 500;
   flex-grow: 1;
   padding: 10px;
   transition: background-color 0.2s ease-in-out;

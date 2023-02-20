@@ -26,7 +26,7 @@ function CheckBoxRow() {
   };
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div style={{ display: "flex", backgroundColor: "blue" }}>
+      <div style={{ display: "flex" }}>
         <div style={{ minWidth: "130px" }}> </div>
         <Droppable droppableId="one" direction="horizontal">
           {(provided) => (
