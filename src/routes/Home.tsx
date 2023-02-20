@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import CharSearchForm from "../components/CharSearchForm";
 import ToDoContainer from "../components/ToDoContainer";
 const MainFrame = styled.div`
   width: 100vw;
@@ -24,6 +25,7 @@ function Home() {
     <MainFrame>
       <ToDoFrame>
         <HeaderContainer />
+        <CharSearchForm />
         <ToDoContainer />
       </ToDoFrame>
     </MainFrame>

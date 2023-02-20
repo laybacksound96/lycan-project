@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import ToDoColumn from "./Container/ToDoColumn";
-import CheckBoxRow from "./Container/CheckBoxRow";
+import ToDoColumn from "./Column/ToDoColumn";
+import CheckBoxRow from "./Row/CheckBoxRow";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
