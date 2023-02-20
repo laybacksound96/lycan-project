@@ -10,7 +10,7 @@ const Name = styled.div`
   justify-content: center;
   align-items: center;
   width: 50px;
-  height: 20px;
+  height: 50px;
   border-radius: 5px;
   &:hover {
     background-color: rgba(255, 255, 255, 0.05);

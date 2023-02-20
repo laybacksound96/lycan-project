@@ -18,12 +18,18 @@ const ShareWidthDiv = styled.div`
   justify-content: center;
   align-items: center;
   width: 50px;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: ease-in-out 0.1s;
+  }
 `;
 const Name = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 200px;
+  padding-left: 5px;
   height: 50px;
   border-radius: 5px;
   &:hover {

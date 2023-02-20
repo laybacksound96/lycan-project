@@ -1,3 +1,4 @@
+import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
@@ -37,4 +38,4 @@ function DroppableSpace({ boardId }: ICardProps) {
     </Droppable>
   );
 }
-export default DroppableSpace;
+export default React.memo(DroppableSpace);
