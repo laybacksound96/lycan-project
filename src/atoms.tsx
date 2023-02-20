@@ -112,11 +112,7 @@ interface Todo {
   saton: boolean;
   akkan: boolean;
 }
-export const toDoState = atom({
-  key: "toDo",
-  default: {
-    "To Do": ["a", "b"],
-    Doing: ["c", "d", "e"],
-    Done: ["f"],
-  },
+export const CharacterState = atom({
+  key: "CharacterInfo",
+  default: ["a"],
 });

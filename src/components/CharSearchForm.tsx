@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
-import { useQuery } from "react-query";
+
+import { useSetRecoilState } from "recoil";
 import { fetchCharInfo } from "../api";
+import { CharacterState } from "../atoms";
 function CharSearchForm() {
   const { register, handleSubmit, setValue } = useForm();
 
@@ -12,13 +14,13 @@ function CharSearchForm() {
     ["ItemAvgLevel"]: string;
     ["ItemMaxLevel"]: string;
   }
+  const setCharacterState = useSetRecoilState(CharacterState);
+  const OnSubmit = async ({ Search }: any) => {
+    const data = await fetchCharInfo(Search);
 
-  const OnSubmit = async (input: any) => {
-    const { data } = useQuery<ICharacterInfo[]>(
-      "CharInfo",
-      fetchCharInfo("asd")
-    );
-    console.log(data);
+    setCharacterState((prev) => {
+      return [...prev, ...data.map((value: any) => value["CharacterName"])];
+    });
 
     setValue("Search", "");
   };
@@ -26,7 +28,7 @@ function CharSearchForm() {
   return (
     <form onSubmit={handleSubmit(OnSubmit)}>
       <input {...register("Search")} />
-      <button>aa</button>
+      <button>search</button>
     </form>
   );
 }

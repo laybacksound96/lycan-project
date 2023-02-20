@@ -4,7 +4,7 @@ import {
   NotDraggingStyle,
 } from "react-beautiful-dnd";
 
-import Card from "./Card";
+import Card from "./DroppableSpace";
 
 function getStyle(style: DraggingStyle | NotDraggingStyle) {
   if (style?.transform) {
@@ -24,7 +24,7 @@ function ToDoColumn() {
   };
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Card boardId={"수정해야돼"} key={"수정해야돼"} toDos={"수정해야돼"} />
+      <Card boardId={"수정해야돼"} toDos={"수정해야돼"} />
     </DragDropContext>
   );
 }
