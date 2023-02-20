@@ -7,7 +7,6 @@ import DraggableName from "./DraggableName";
 //일단 임시로 해놓자고
 interface ICardProps {
   boardId: string;
-  toDos: string;
 }
 
 const Area = styled.div`
@@ -17,14 +16,19 @@ const Area = styled.div`
   transition: background-color 0.2s ease-in-out;
 `;
 
-function DroppableSpace({ boardId, toDos }: ICardProps) {
+function DroppableSpace({ boardId }: ICardProps) {
   const user = useRecoilValue(CharacterState);
   return (
     <Droppable droppableId={boardId}>
       {(provided, snapshot) => (
         <Area ref={provided.innerRef} {...provided.droppableProps}>
           {user.map((value, index) => (
-            <DraggableName boardId={value} value={value} index={index} />
+            <DraggableName
+              boardId={value}
+              value={value}
+              index={index}
+              key={value}
+            />
           ))}
           {provided.placeholder}
         </Area>

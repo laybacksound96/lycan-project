@@ -1,9 +1,26 @@
-import { Draggable } from "react-beautiful-dnd";
+import React from "react";
+import {
+  Draggable,
+  DraggingStyle,
+  NotDraggingStyle,
+} from "react-beautiful-dnd";
 
 interface INameProps {
   boardId: string;
   value: string;
   index: number;
+}
+
+function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
+  if (style?.transform) {
+    const axisLockY = `translate(0px,${style.transform.split(",").pop()}`;
+
+    return {
+      ...style,
+      transform: axisLockY,
+    };
+  }
+  return style;
 }
 
 function DraggableName({ boardId, value, index }: INameProps) {
@@ -14,6 +31,7 @@ function DraggableName({ boardId, value, index }: INameProps) {
           ref={provided.innerRef}
           {...provided.dragHandleProps}
           {...provided.draggableProps}
+          style={AxisLocker(provided.draggableProps.style!)}
         >
           {value}
           <input type="checkbox" />
@@ -25,4 +43,4 @@ function DraggableName({ boardId, value, index }: INameProps) {
   );
 }
 
-export default DraggableName;
+export default React.memo(DraggableName);

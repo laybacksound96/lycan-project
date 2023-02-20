@@ -36,7 +36,7 @@ function CheckBoxRow() {
               {...provided.droppableProps}
             >
               {Row.map((Row, index) => (
-                <Draggable draggableId={Row} index={index}>
+                <Draggable draggableId={Row} index={index} key={Row}>
                   {(provided) => (
                     <RowCard
                       Row={Row}

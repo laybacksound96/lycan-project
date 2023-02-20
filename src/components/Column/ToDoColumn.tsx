@@ -1,30 +1,27 @@
-import {
-  DragDropContext,
-  DraggingStyle,
-  NotDraggingStyle,
-} from "react-beautiful-dnd";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import { useSetRecoilState } from "recoil";
+import { CharacterState } from "../../atoms";
 
-import Card from "./DroppableSpace";
-
-function getStyle(style: DraggingStyle | NotDraggingStyle) {
-  if (style?.transform) {
-    const axisLockY = `translate(0px,${style.transform.split(",").pop()}`;
-
-    return {
-      ...style,
-      transform: axisLockY,
-    };
-  }
-  return style;
-}
+import DroppableSpace from "./DroppableSpace";
 
 function ToDoColumn() {
-  const onDragEnd = () => {
+  const setChars = useSetRecoilState(CharacterState);
+  const onDragEnd = (info: DropResult) => {
+    const { destination, draggableId, source } = info;
+    if (!destination) return;
+    if (destination?.droppableId === source.droppableId) {
+      setChars((prev) => {
+        const boardCopy = [...prev];
+        boardCopy.splice(source.index, 1);
+        boardCopy.splice(destination?.index, 0, draggableId);
+        return [...boardCopy];
+      });
+    }
     return;
   };
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Card boardId={"수정해야돼"} toDos={"수정해야돼"} />
+      <DroppableSpace boardId={"수정해야돼"} />
     </DragDropContext>
   );
 }
