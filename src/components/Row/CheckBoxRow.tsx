@@ -10,7 +10,7 @@ import RowCard from "./RowCard";
 
 const Row = ["A", "B", "C"];
 
-function getStyle(style: DraggingStyle | NotDraggingStyle) {
+function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
   if (style?.transform) {
     const axisLockX = `${style.transform.split(",").shift()}, 0px)`;
     return {
@@ -41,7 +41,7 @@ function CheckBoxRow() {
                     <RowCard
                       Row={Row}
                       parentProvided={provided}
-                      style={getStyle(provided.draggableProps.style!)}
+                      style={AxisLocker(provided.draggableProps.style!)}
                     />
                   )}
                 </Draggable>
