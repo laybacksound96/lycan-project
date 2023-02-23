@@ -39,6 +39,10 @@ body {
   font-family: 'Nanum Gothic', sans-serif;
   line-height: 1;
   background-color: ${(props) => props.theme.backgroundSubColor};
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
 }
 menu, ol, ul {
   list-style: none;
