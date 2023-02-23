@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useSetRecoilState } from "recoil";
 import { fetchCharInfo } from "../api";
 import { CharacterState } from "../atoms";
+
 function CharSearchForm() {
   const { register, handleSubmit, setValue } = useForm();
 
@@ -10,8 +11,18 @@ function CharSearchForm() {
   const OnSubmit = async ({ Search }: any) => {
     const data = await fetchCharInfo(Search);
 
+    for (var i = 0; i < data.length; i++) {
+      data[i].check = [
+        { checkName: "A", isChecked: false },
+        { checkName: "B", isChecked: false },
+        { checkName: "C", isChecked: false },
+        { checkName: "D", isChecked: false },
+        { checkName: "E", isChecked: false },
+      ];
+    }
+
     setCharacterState((prev) => {
-      return [...data.map((value: any) => value["CharacterName"])];
+      return data;
     });
 
     setValue("Search", "");

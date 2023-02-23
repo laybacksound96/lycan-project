@@ -29,27 +29,7 @@ export const CharacterState = atom({
   key: "CharacterInfo",
   default: [
     {
-      name: "a",
-      check: [
-        { checkName: "A", isChecked: true },
-        { checkName: "B", isChecked: false },
-        { checkName: "C", isChecked: false },
-        { checkName: "D", isChecked: false },
-        { checkName: "E", isChecked: false },
-      ],
-    },
-    {
-      name: "b",
-      check: [
-        { checkName: "A", isChecked: true },
-        { checkName: "B", isChecked: false },
-        { checkName: "C", isChecked: false },
-        { checkName: "D", isChecked: false },
-        { checkName: "E", isChecked: false },
-      ],
-    },
-    {
-      name: "c",
+      CharacterName: "a",
       check: [
         { checkName: "A", isChecked: true },
         { checkName: "B", isChecked: false },

@@ -3,9 +3,10 @@ import CharSearchForm from "../components/CharSearchForm";
 import ToDoContainer from "../components/ToDoContainer";
 const MainFrame = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 `;
 const ToDoFrame = styled.div`
@@ -20,7 +21,10 @@ const HeaderContainer = styled.div`
   border-radius: 15px;
   margin-bottom: 15px;
 `;
-
+const HeaderFrame = styled.div`
+  width: inherit;
+  height: 150px;
+`;
 function Home() {
   return (
     <MainFrame
@@ -28,8 +32,8 @@ function Home() {
         e.preventDefault();
       }}
     >
+      <HeaderFrame />
       <ToDoFrame>
-        <HeaderContainer />
         <CharSearchForm />
         <ToDoContainer />
       </ToDoFrame>

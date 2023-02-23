@@ -44,13 +44,13 @@ function CheckBoxRow() {
         boardCopy.splice(destination?.index, 0, draggableId);
         return [...boardCopy];
       });
-      setChars((prev) => {
-        /* 
+
+      /* 
       @todo : code refactoring needs
       */
 
+      setChars((prev) => {
         const boardCopy = [...prev];
-
         const newArray = [];
         for (var i = 0; i < boardCopy.length; i++) {
           const checkCopy = [...boardCopy[i]["check"]];
@@ -58,7 +58,7 @@ function CheckBoxRow() {
           checkCopy.splice(source.index, 1);
           checkCopy.splice(destination?.index, 0, copiedObject);
           const newObject = {
-            name: boardCopy[i]["name"],
+            CharacterName: boardCopy[i]["CharacterName"],
             check: checkCopy,
           };
           newArray.push(newObject);

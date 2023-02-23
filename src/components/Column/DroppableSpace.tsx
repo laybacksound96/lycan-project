@@ -27,11 +27,11 @@ function DroppableSpace({ boardId }: ICardProps) {
         <Area ref={provided.innerRef} {...provided.droppableProps}>
           {user.map((value, index) => (
             <DraggableName
-              boardId={value["name"]}
-              value={value["name"]}
+              boardId={value["CharacterName"]}
+              value={value["CharacterName"]}
               index={index}
               check={value["check"]}
-              key={value["name"]}
+              key={value["CharacterName"]}
             />
           ))}
           {provided.placeholder}
