@@ -14,13 +14,7 @@ const ToDoFrame = styled.div`
   border-radius: 15px;
   width: 720px;
 `;
-const HeaderContainer = styled.div`
-  background-color: #aabbcb;
-  width: inherit;
-  height: 10%;
-  border-radius: 15px;
-  margin-bottom: 15px;
-`;
+
 const HeaderFrame = styled.div`
   width: inherit;
   height: 150px;

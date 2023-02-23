@@ -13,11 +13,11 @@ function CharSearchForm() {
 
     for (var i = 0; i < data.length; i++) {
       data[i].check = [
-        { checkName: "A", isChecked: false },
-        { checkName: "B", isChecked: false },
-        { checkName: "C", isChecked: false },
-        { checkName: "D", isChecked: false },
-        { checkName: "E", isChecked: false },
+        { checkName: "발탄", isChecked: false },
+        { checkName: "비아", isChecked: false },
+        { checkName: "쿠크", isChecked: false },
+        { checkName: "아브렐슈드", isChecked: false },
+        { checkName: "일리아칸", isChecked: false },
       ];
     }
 
