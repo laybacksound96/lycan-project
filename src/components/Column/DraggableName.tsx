@@ -11,6 +11,7 @@ interface INameProps {
   boardId: string;
   value: string;
   index: number;
+  check: any;
 }
 
 const Name = styled.div`
@@ -42,7 +43,7 @@ function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
   return style;
 }
 
-function DraggableName({ boardId, value, index }: INameProps) {
+function DraggableName({ boardId, value, index, check }: INameProps) {
   return (
     <Draggable draggableId={boardId} index={index}>
       {(provided) => (
@@ -52,9 +53,9 @@ function DraggableName({ boardId, value, index }: INameProps) {
           style={AxisLocker(provided.draggableProps.style!)}
         >
           <Name {...provided.dragHandleProps}>{value}</Name>
-          <Checkbox />
-          <Checkbox />
-          <Checkbox />
+          {check.map((check: any) => (
+            <Checkbox key={check["checkName"]} isChecked={check["isChecked"]} />
+          ))}
         </NameBox>
       )}
     </Draggable>

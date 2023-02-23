@@ -28,9 +28,30 @@ interface Todo {
 export const CharacterState = atom({
   key: "CharacterInfo",
   default: [
-    { name: "a", check: ["a", "b", "c"] },
-    { name: "b", check: ["a", "b", "c", "d"] },
-    { name: "c", check: ["a", "b"] },
+    {
+      name: "a",
+      check: [
+        { checkName: "A", isChecked: false },
+        { checkName: "B", isChecked: false },
+        { checkName: "C", isChecked: false },
+      ],
+    },
+    {
+      name: "b",
+      check: [
+        { checkName: "A", isChecked: false },
+        { checkName: "B", isChecked: true },
+        { checkName: "C", isChecked: true },
+      ],
+    },
+    {
+      name: "c",
+      check: [
+        { checkName: "A", isChecked: false },
+        { checkName: "B", isChecked: true },
+        { checkName: "C", isChecked: false },
+      ],
+    },
   ],
 });
 

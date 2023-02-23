@@ -30,6 +30,7 @@ function DroppableSpace({ boardId }: ICardProps) {
               boardId={value["name"]}
               value={value["name"]}
               index={index}
+              check={value["check"]}
               key={value["name"]}
             />
           ))}

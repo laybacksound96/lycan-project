@@ -7,7 +7,7 @@ import DroppableSpace from "./DroppableSpace";
 function ToDoColumn() {
   const setChars = useSetRecoilState(CharacterState);
   const onDragEnd = (info: DropResult) => {
-    const { destination, draggableId, source } = info;
+    const { destination, source } = info;
     if (!destination) return;
     if (destination?.droppableId === source.droppableId) {
       setChars((prev) => {
