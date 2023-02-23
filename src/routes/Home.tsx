@@ -23,7 +23,11 @@ const HeaderContainer = styled.div`
 
 function Home() {
   return (
-    <MainFrame>
+    <MainFrame
+      onContextMenu={(e: any) => {
+        e.preventDefault();
+      }}
+    >
       <ToDoFrame>
         <HeaderContainer />
         <CharSearchForm />

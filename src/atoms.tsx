@@ -1,5 +1,6 @@
 import { atom } from "recoil";
 
+/*
 interface ICharacterInfo {
   ["ServerName"]: string;
   ["CharacterName"]: string;
@@ -21,9 +22,16 @@ interface Todo {
   saton: boolean;
   akkan: boolean;
 }
+
+*/
+
 export const CharacterState = atom({
   key: "CharacterInfo",
-  default: ["a"],
+  default: [
+    { name: "a", check: ["a", "b", "c"] },
+    { name: "b", check: ["a", "b", "c", "d"] },
+    { name: "c", check: ["a", "b"] },
+  ],
 });
 
 export const RowState = atom({
