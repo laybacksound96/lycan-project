@@ -43,5 +43,5 @@ export const CharacterState = atom({
 
 export const RowState = atom({
   key: "RowState",
-  default: ["발탄", "비아", "쿠크", "아브렐", "일리"],
+  default: ["A", "B", "C", "D", "E"],
 });
