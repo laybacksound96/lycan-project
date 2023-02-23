@@ -18,11 +18,8 @@ function ToDoColumn() {
                 이 index값을 이용하여 복사한 object에서 오브젝트 카피본을 만들어서 붙여보자
         
         */
-
         const boardCopy = [...prev];
-
         const copiedObject = { ...boardCopy[source.index] };
-
         boardCopy.splice(source.index, 1);
         boardCopy.splice(destination?.index, 0, copiedObject);
         return [...boardCopy];

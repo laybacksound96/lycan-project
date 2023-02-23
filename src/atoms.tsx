@@ -31,25 +31,31 @@ export const CharacterState = atom({
     {
       name: "a",
       check: [
-        { checkName: "A", isChecked: false },
+        { checkName: "A", isChecked: true },
         { checkName: "B", isChecked: false },
         { checkName: "C", isChecked: false },
+        { checkName: "D", isChecked: false },
+        { checkName: "E", isChecked: false },
       ],
     },
     {
       name: "b",
       check: [
-        { checkName: "A", isChecked: false },
-        { checkName: "B", isChecked: true },
-        { checkName: "C", isChecked: true },
+        { checkName: "A", isChecked: true },
+        { checkName: "B", isChecked: false },
+        { checkName: "C", isChecked: false },
+        { checkName: "D", isChecked: false },
+        { checkName: "E", isChecked: false },
       ],
     },
     {
       name: "c",
       check: [
-        { checkName: "A", isChecked: false },
-        { checkName: "B", isChecked: true },
+        { checkName: "A", isChecked: true },
+        { checkName: "B", isChecked: false },
         { checkName: "C", isChecked: false },
+        { checkName: "D", isChecked: false },
+        { checkName: "E", isChecked: false },
       ],
     },
   ],
@@ -57,5 +63,5 @@ export const CharacterState = atom({
 
 export const RowState = atom({
   key: "RowState",
-  default: ["A", "B", "C"],
+  default: ["A", "B", "C", "D", "E"],
 });

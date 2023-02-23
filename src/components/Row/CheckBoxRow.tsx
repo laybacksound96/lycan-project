@@ -1,3 +1,4 @@
+import React from "react";
 import {
   DragDropContext,
   Draggable,
@@ -8,7 +9,7 @@ import {
 } from "react-beautiful-dnd";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { RowState } from "../../atoms";
+import { CharacterState, RowState } from "../../atoms";
 
 import RowCard from "./RowCard";
 
@@ -31,6 +32,7 @@ const Name = styled.div`
   border-radius: 5px;
 `;
 function CheckBoxRow() {
+  const setChars = useSetRecoilState(CharacterState);
   const [Row, setRows] = useRecoilState(RowState);
   const onDragEnd = (info: DropResult) => {
     const { destination, draggableId, source } = info;
@@ -41,6 +43,27 @@ function CheckBoxRow() {
         boardCopy.splice(source.index, 1);
         boardCopy.splice(destination?.index, 0, draggableId);
         return [...boardCopy];
+      });
+      setChars((prev) => {
+        /* 
+      @todo : code refactoring needs
+      */
+
+        const boardCopy = [...prev];
+
+        const newArray = [];
+        for (var i = 0; i < boardCopy.length; i++) {
+          const checkCopy = [...boardCopy[i]["check"]];
+          const copiedObject = { ...checkCopy[source.index] };
+          checkCopy.splice(source.index, 1);
+          checkCopy.splice(destination?.index, 0, copiedObject);
+          const newObject = {
+            name: boardCopy[i]["name"],
+            check: checkCopy,
+          };
+          newArray.push(newObject);
+        }
+        return newArray;
       });
     }
     return;
@@ -76,4 +99,4 @@ function CheckBoxRow() {
     </DragDropContext>
   );
 }
-export default CheckBoxRow;
+export default React.memo(CheckBoxRow);
