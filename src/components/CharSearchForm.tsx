@@ -8,6 +8,7 @@ function CharSearchForm() {
   const { register, handleSubmit, setValue } = useForm();
 
   const setCharacterState = useSetRecoilState(CharacterState);
+
   const OnSubmit = async ({ Search }: any) => {
     const data = await fetchCharInfo(Search);
 
@@ -20,7 +21,7 @@ function CharSearchForm() {
         { checkName: "E", isChecked: false },
       ];
     }
-
+    console.log("Fectch:", data);
     setCharacterState((prev) => {
       return data;
     });

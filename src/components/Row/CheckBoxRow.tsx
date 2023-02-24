@@ -53,13 +53,13 @@ function CheckBoxRow() {
         const boardCopy = [...prev];
         const newArray = [];
         for (var i = 0; i < boardCopy.length; i++) {
-          const checkCopy = [...boardCopy[i]["check"]];
+          const checkCopy = [...boardCopy[i]["Check"]];
           const copiedObject = { ...checkCopy[source.index] };
           checkCopy.splice(source.index, 1);
           checkCopy.splice(destination?.index, 0, copiedObject);
           const newObject = {
             CharacterName: boardCopy[i]["CharacterName"],
-            check: checkCopy,
+            Check: checkCopy,
           };
           newArray.push(newObject);
         }

@@ -1,36 +1,25 @@
 import { atom } from "recoil";
 
-/*
-interface ICharacterInfo {
-  ["ServerName"]: string;
-  ["CharacterName"]: string;
-  ["CharacterLevel"]: number;
-  ["CharacterClassName"]: string;
-  ["ItemAvgLevel"]: string;
-  ["ItemMaxLevel"]: string;
+export interface ICheck {
+  checkName: string;
+  isChecked: boolean;
+}
+export interface ICharacter {
+  CharacterName: string;
+  Check: ICheck[];
+  ServerName?: string;
+  CharacterLevel?: number;
+  CharacterClassName?: string;
+  ItemAvgLevel?: string;
+  ItemMaxLevel?: string;
 }
 
-interface ICharacterToDo {
-  name: string;
-  toDo: Todo;
-}
-interface Todo {
-  guildRaid: boolean;
-  valtan: boolean;
-  vykas: boolean;
-  abrel: boolean;
-  saton: boolean;
-  akkan: boolean;
-}
-
-*/
-
-export const CharacterState = atom({
+export const CharacterState = atom<ICharacter[]>({
   key: "CharacterInfo",
   default: [
     {
       CharacterName: "a",
-      check: [
+      Check: [
         { checkName: "A", isChecked: true },
         { checkName: "B", isChecked: false },
         { checkName: "C", isChecked: false },

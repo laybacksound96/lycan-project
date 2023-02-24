@@ -16,7 +16,12 @@ const ShareWidthDiv = styled.div`
     transition: ease-in-out 0.1s;
   }
 `;
-function Checkbox({ isChecked }: any) {
+
+interface ICheckboxProps {
+  key: string;
+  isChecked: boolean;
+}
+function Checkbox({ isChecked }: ICheckboxProps) {
   const [isClicked, setIsClicked] = useState(isChecked);
   function CheckBox_Onclick() {
     setIsClicked(!isClicked);

@@ -20,18 +20,18 @@ const Area = styled.div`
 
 function DroppableSpace({ boardId }: ICardProps) {
   const user = useRecoilValue(CharacterState);
-
+  console.log("Droppable", user);
   return (
     <Droppable droppableId={boardId}>
       {(provided, snapshot) => (
         <Area ref={provided.innerRef} {...provided.droppableProps}>
           {user.map((value, index) => (
             <DraggableName
-              boardId={value["CharacterName"]}
-              value={value["CharacterName"]}
+              boardId={value.CharacterName}
+              value={value.CharacterName}
               index={index}
-              check={value["check"]}
-              key={value["CharacterName"]}
+              check={value.Check}
+              key={value.CharacterName}
             />
           ))}
           {provided.placeholder}

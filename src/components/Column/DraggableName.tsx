@@ -5,13 +5,14 @@ import {
   NotDraggingStyle,
 } from "react-beautiful-dnd";
 import styled from "styled-components";
+import { ICheck } from "../../atoms";
 import Checkbox from "./CheckBox";
 
 interface INameProps {
   boardId: string;
   value: string;
   index: number;
-  check: any;
+  check: ICheck[];
 }
 
 const Name = styled.div`
@@ -44,6 +45,11 @@ function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
 }
 
 function DraggableName({ boardId, value, index, check }: INameProps) {
+  if (check === undefined) {
+    console.log(boardId, value, index, check);
+    console.log("error");
+    return null;
+  }
   return (
     <Draggable draggableId={boardId} index={index}>
       {(provided) => (
@@ -53,8 +59,9 @@ function DraggableName({ boardId, value, index, check }: INameProps) {
           style={AxisLocker(provided.draggableProps.style!)}
         >
           <Name {...provided.dragHandleProps}>{value}</Name>
-          {check.map((check: any) => (
-            <Checkbox key={check["checkName"]} isChecked={check["isChecked"]} />
+
+          {check.map((check) => (
+            <Checkbox key={check.checkName} isChecked={check.isChecked} />
           ))}
         </NameBox>
       )}
