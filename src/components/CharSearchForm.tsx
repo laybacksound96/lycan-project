@@ -13,7 +13,7 @@ function CharSearchForm() {
     const data = await fetchCharInfo(Search);
 
     for (var i = 0; i < data.length; i++) {
-      data[i].check = [
+      data[i].Check = [
         { checkName: "A", isChecked: false },
         { checkName: "B", isChecked: false },
         { checkName: "C", isChecked: false },

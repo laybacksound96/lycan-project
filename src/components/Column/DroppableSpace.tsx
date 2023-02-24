@@ -20,7 +20,6 @@ const Area = styled.div`
 
 function DroppableSpace({ boardId }: ICardProps) {
   const user = useRecoilValue(CharacterState);
-  console.log("Droppable", user);
   return (
     <Droppable droppableId={boardId}>
       {(provided, snapshot) => (

@@ -44,12 +44,7 @@ function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
   return style;
 }
 
-function DraggableName({ boardId, value, index, check }: INameProps) {
-  if (check === undefined) {
-    console.log(boardId, value, index, check);
-    console.log("error");
-    return null;
-  }
+function DraggableName({ boardId, value, check, index }: INameProps) {
   return (
     <Draggable draggableId={boardId} index={index}>
       {(provided) => (
