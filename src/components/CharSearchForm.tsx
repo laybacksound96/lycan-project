@@ -11,7 +11,10 @@ function CharSearchForm() {
 
   const OnSubmit = async ({ Search }: any) => {
     const data: ICharacter[] = await fetchCharInfo(Search);
-
+    if (data === null) {
+      console.log("ERROR# Fetch 데이터가 null이기때문에 발생하였음.");
+      return;
+    }
     for (var i = 0; i < data.length; i++) {
       data[i].Check = [
         { checkName: "A", isChecked: false },
@@ -21,8 +24,7 @@ function CharSearchForm() {
         { checkName: "E", isChecked: false },
       ];
     }
-    console.log("Fectch:", data);
-    setCharacterState((prev) => {
+    setCharacterState(() => {
       return data;
     });
 
