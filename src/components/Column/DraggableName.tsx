@@ -35,7 +35,6 @@ const NameBox = styled.div`
 function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
   if (style?.transform) {
     const axisLockY = `translate(0px,${style.transform.split(",").pop()}`;
-
     return {
       ...style,
       transform: axisLockY,

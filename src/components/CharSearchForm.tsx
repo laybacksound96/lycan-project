@@ -24,6 +24,10 @@ function CharSearchForm() {
         { checkName: "E", isChecked: false },
       ];
     }
+
+    //너무졸리다@02-25
+    console.log(data);
+    data.map((content) => {});
     setCharacterState(() => {
       return data;
     });
