@@ -13,6 +13,11 @@ function CharSearchForm() {
     const data: ICharacter[] = await fetchCharInfo(Search);
     if (data === null) {
       console.log("ERROR# Fetch 데이터가 null이기때문에 발생하였음.");
+      /*@TODO
+        fetchCharInfo()가 null이 반환되는 것은
+        유효하지 않은 닉네임(Search)을 인수로 받아서 그렇다.
+        해당 오류를 페이지에서 해결하는 UI를 만들 것
+      */
       return;
     }
     for (var i = 0; i < data.length; i++) {
