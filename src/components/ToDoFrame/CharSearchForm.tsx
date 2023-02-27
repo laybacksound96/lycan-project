@@ -25,7 +25,7 @@ function CharSearchForm() {
       ];
     }
 
-    //너무졸리다@02-25
+    //@구현할 내용 :: 캐릭터 정렬 레벨순(내림차)으로 하기
 
     /*
     console.log(data);
