@@ -24,18 +24,19 @@ function CharSearchForm() {
         { checkName: "E", isChecked: false },
       ];
     }
+    setCharacterState((prev) => {
+      return newData;
+    });
+    setValue("Search", "");
 
-    //@구현할 내용 :: 캐릭터 정렬 레벨순(내림차)으로 하기
-
-    /*
-    console.log(data);
-    data.map((content) => {});
-    setCharacterState(() => {
-      return data;
+    const newData = data.sort(function (a, b) {
+      return parserToInt(b.ItemAvgLevel) - parserToInt(a.ItemAvgLevel);
     });
 
-    setValue("Search", "");
-    */
+    function parserToInt(string: string | undefined) {
+      if (string === undefined) return 0;
+      return parseInt(string.replace(",", ""));
+    }
   };
 
   return (
