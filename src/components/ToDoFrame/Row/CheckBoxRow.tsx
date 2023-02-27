@@ -9,7 +9,7 @@ import {
 } from "react-beautiful-dnd";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { CharacterState, RowState } from "../../atoms";
+import { CharacterState, RowState } from "../../../atoms";
 
 import RowCard from "./RowCard";
 

@@ -1,6 +1,6 @@
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { useSetRecoilState } from "recoil";
-import { CharacterState } from "../../atoms";
+import { CharacterState } from "../../../atoms";
 
 import DroppableSpace from "./DroppableSpace";
 

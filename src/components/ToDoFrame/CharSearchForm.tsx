@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 
 import { useSetRecoilState } from "recoil";
-import { fetchCharInfo } from "../api";
-import { CharacterState, ICharacter } from "../atoms";
+import { fetchCharInfo } from "../../api";
+import { CharacterState, ICharacter } from "../../atoms";
 
 function CharSearchForm() {
   const { register, handleSubmit, setValue } = useForm();
@@ -26,6 +26,8 @@ function CharSearchForm() {
     }
 
     //너무졸리다@02-25
+
+    /*
     console.log(data);
     data.map((content) => {});
     setCharacterState(() => {
@@ -33,6 +35,7 @@ function CharSearchForm() {
     });
 
     setValue("Search", "");
+    */
   };
 
   return (

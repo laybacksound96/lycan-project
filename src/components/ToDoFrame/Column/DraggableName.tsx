@@ -5,7 +5,7 @@ import {
   NotDraggingStyle,
 } from "react-beautiful-dnd";
 import styled from "styled-components";
-import { ICheck } from "../../atoms";
+import { ICheck } from "../../../atoms";
 import Checkbox from "./CheckBox";
 
 interface INameProps {

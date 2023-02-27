@@ -1,6 +1,25 @@
 import styled from "styled-components";
-import CharSearchForm from "../components/CharSearchForm";
-import ToDoContainer from "../components/ToDoContainer";
+import CharSearchForm from "../components/ToDoFrame/CharSearchForm";
+import ToDoContainer from "../components/ToDoFrame/ToDoContainer";
+
+function Home() {
+  return (
+    <MainFrame
+      onContextMenu={(e: any) => {
+        e.preventDefault();
+      }}
+    >
+      <HeaderFrame />
+      <ToDoFrame>
+        <CharSearchForm />
+        <ToDoContainer />
+      </ToDoFrame>
+    </MainFrame>
+  );
+}
+
+export default Home;
+
 const MainFrame = styled.div`
   width: 100vw;
   height: 100%;
@@ -19,20 +38,3 @@ const HeaderFrame = styled.div`
   width: inherit;
   height: 150px;
 `;
-function Home() {
-  return (
-    <MainFrame
-      onContextMenu={(e: any) => {
-        e.preventDefault();
-      }}
-    >
-      <HeaderFrame />
-      <ToDoFrame>
-        <CharSearchForm />
-        <ToDoContainer />
-      </ToDoFrame>
-    </MainFrame>
-  );
-}
-
-export default Home;

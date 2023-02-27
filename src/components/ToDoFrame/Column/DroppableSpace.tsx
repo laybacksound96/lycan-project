@@ -2,7 +2,7 @@ import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { CharacterState } from "../../atoms";
+import { CharacterState } from "../../../atoms";
 import DraggableName from "./DraggableName";
 
 //일단 임시로 해놓자고
