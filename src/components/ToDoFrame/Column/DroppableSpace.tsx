@@ -5,18 +5,9 @@ import styled from "styled-components";
 import { CharacterState } from "../../../atoms";
 import DraggableName from "./DraggableName";
 
-//일단 임시로 해놓자고
 interface ICardProps {
   boardId: string;
 }
-
-const Area = styled.div`
-  color: ${(props) => props.theme.textColor};
-  font-weight: 500;
-  flex-grow: 1;
-
-  transition: background-color 0.2s ease-in-out;
-`;
 
 function DroppableSpace({ boardId }: ICardProps) {
   const user = useRecoilValue(CharacterState);
@@ -39,4 +30,13 @@ function DroppableSpace({ boardId }: ICardProps) {
     </Droppable>
   );
 }
+
+const Area = styled.div`
+  color: ${(props) => props.theme.textColor};
+  font-weight: 500;
+  flex-grow: 1;
+
+  transition: background-color 0.2s ease-in-out;
+`;
+
 export default React.memo(DroppableSpace);

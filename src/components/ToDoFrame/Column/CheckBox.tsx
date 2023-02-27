@@ -3,20 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import styled from "styled-components";
 
-// @todo2 width는 Row쪽 witdh와 공유해야 함
-const ShareWidthDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  border-radius: 5px;
-  color: white;
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    transition: ease-in-out 0.1s;
-  }
-`;
-
 interface ICheckboxProps {
   key: string;
   isChecked: boolean;
@@ -36,5 +22,19 @@ function Checkbox({ isChecked }: ICheckboxProps) {
     </ShareWidthDiv>
   );
 }
+
+// @todo2 width는 Row쪽 witdh와 공유해야 함
+const ShareWidthDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  border-radius: 5px;
+  color: white;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: ease-in-out 0.1s;
+  }
+`;
 
 export default Checkbox;

@@ -15,34 +15,6 @@ interface INameProps {
   check: ICheck[];
 }
 
-const Name = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 200px;
-  padding-left: 5px;
-  height: 50px;
-  border-radius: 5px;
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    transition: ease-in-out 0.1s;
-  }
-`;
-const NameBox = styled.div`
-  display: flex;
-`;
-
-function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
-  if (style?.transform) {
-    const axisLockY = `translate(0px,${style.transform.split(",").pop()}`;
-    return {
-      ...style,
-      transform: axisLockY,
-    };
-  }
-  return style;
-}
-
 function DraggableName({ boardId, value, check, index }: INameProps) {
   return (
     <Draggable draggableId={boardId} index={index}>
@@ -62,5 +34,32 @@ function DraggableName({ boardId, value, check, index }: INameProps) {
     </Draggable>
   );
 }
+
+function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
+  if (style?.transform) {
+    const axisLockY = `translate(0px,${style.transform.split(",").pop()}`;
+    return {
+      ...style,
+      transform: axisLockY,
+    };
+  }
+  return style;
+}
+const Name = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 200px;
+  padding-left: 5px;
+  height: 50px;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: ease-in-out 0.1s;
+  }
+`;
+const NameBox = styled.div`
+  display: flex;
+`;
 
 export default React.memo(DraggableName);
