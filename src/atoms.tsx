@@ -13,7 +13,10 @@ export interface ICharacter {
   ItemAvgLevel?: string;
   ItemMaxLevel?: string;
 }
-
+export const isAuthenticated = atom<boolean>({
+  key: "isAuthenticated",
+  default: false,
+});
 export const CharacterState = atom<ICharacter[]>({
   key: "CharacterInfo",
   default: [
