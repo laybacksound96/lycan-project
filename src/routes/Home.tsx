@@ -7,7 +7,7 @@ import { isAuthenticated } from "../atoms";
 
 const CLIENT_ID = "1080467945186144308";
 const CLIENT_SECRET = "esRaerHnv5hm0Xz_QgE5vU9h8N-tmIVY";
-const REDIRECT_URI = "http://localhost:3000/login";
+const REDIRECT_URI = "http://localhost:3000/";
 
 function Home() {
   const [getIsAuthenticated, setIsAuthenticated] =
@@ -55,6 +55,8 @@ function Home() {
       })
         .then((response) => {
           const access_token = response.data.access_token;
+          console.log(response);
+          setIsAuthenticated(true);
           sessionStorage.setItem("access_token", access_token);
         })
         .catch((error) => {
@@ -72,14 +74,11 @@ function Home() {
     });
     window.location.href = `https://discord.com/api/oauth2/authorize?${urlParams}`;
   };
-  const handleLogout = () => {
-    sessionStorage.removeItem("access_token");
-    setIsAuthenticated(false);
-  };
+
   return (
     <Body>
       {getIsAuthenticated ? (
-        <button onClick={handleLogout}>aaaaaaaaaaaaa</button>
+        <Redirect to="/login" />
       ) : (
         <LoginContainer>
           <NameBox>Login page</NameBox>
