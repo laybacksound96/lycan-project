@@ -7,14 +7,8 @@ function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/CheckBox">
-          <CheckBox />
-        </Route>
         <Route path="/">
-          <Home />
+          <CheckBox />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -13,28 +13,6 @@ function Home() {
   const [getIsAuthenticated, setIsAuthenticated] =
     useRecoilState(isAuthenticated);
 
-  /*
-  useEffect(() => {
-    const token = sessionStorage.getItem("access_token");
-
-    if (token) {
-      // Check if token is still valid
-      axios
-        .get("https://discord.com/api/v8/users/@me", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((res) => {
-          console.log(res);
-          setIsAuthenticated(true);
-        })
-        .catch(() => {
-          sessionStorage.removeItem("access_token");
-        });
-    }
-  }, [setIsAuthenticated]);
-*/
   useEffect(() => {
     const code = new URLSearchParams(window.location.search).get("code");
 
