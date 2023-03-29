@@ -17,6 +17,7 @@ export const isAuthenticated = atom<boolean>({
   key: "isAuthenticated",
   default: false,
 });
+
 export const CharacterState = atom<ICharacter[]>({
   key: "CharacterInfo",
   default: [
@@ -28,6 +29,26 @@ export const CharacterState = atom<ICharacter[]>({
         { checkName: "C", isChecked: false },
         { checkName: "D", isChecked: false },
         { checkName: "E", isChecked: false },
+      ],
+    },
+    {
+      CharacterName: "b",
+      Check: [
+        { checkName: "A", isChecked: false },
+        { checkName: "B", isChecked: false },
+        { checkName: "C", isChecked: true },
+        { checkName: "D", isChecked: true },
+        { checkName: "E", isChecked: false },
+      ],
+    },
+    {
+      CharacterName: "c",
+      Check: [
+        { checkName: "A", isChecked: true },
+        { checkName: "B", isChecked: false },
+        { checkName: "C", isChecked: false },
+        { checkName: "D", isChecked: true },
+        { checkName: "E", isChecked: true },
       ],
     },
   ],

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import ToDoColumn from "../components/ToDoFrame/Column/ToDoColumn";
-import CheckBoxRow from "../components/ToDoFrame/Row/CheckBoxRow";
+import Horizontal from "../components/ToDoFrame/Horizontal/ToDoColumn";
+import Vertical from "../components/ToDoFrame/Vertical/Vertical";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
@@ -17,8 +17,8 @@ const Container = styled.div`
 function CheckBox() {
   return (
     <Container>
-      <CheckBoxRow />
-      <ToDoColumn />
+      <Vertical />
+      <Horizontal />
     </Container>
   );
 }

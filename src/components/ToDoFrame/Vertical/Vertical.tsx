@@ -11,7 +11,7 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { CharacterState, RowState } from "../../../atoms";
 
-import RowCard from "./RowCard";
+import RowCard from "./Vetical__card";
 
 function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
   if (style?.transform) {
@@ -23,6 +23,10 @@ function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
   }
   return style;
 }
+const Container = styled.div`
+  display: flex;
+  color: ${(props) => props.theme.textColor};
+`;
 const Name = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -69,9 +73,12 @@ function CheckBoxRow() {
     return;
   };
   return (
-    // @todo 스타일컴포넌트로 아직 안뺌
+    /*
+    Name 컴포넌트는 Droppable의 열을 맞춰주고 있다.
+    컨테이너를 Grid식으로 바꾸던지 근본적인 개선필요
+    */
     <DragDropContext onDragEnd={onDragEnd}>
-      <div style={{ display: "flex", color: "#A2B3D7" }}>
+      <Container>
         <Name />
         <Droppable droppableId="one" direction="horizontal">
           {(provided) => (
@@ -95,7 +102,7 @@ function CheckBoxRow() {
             </div>
           )}
         </Droppable>
-      </div>
+      </Container>
     </DragDropContext>
   );
 }
