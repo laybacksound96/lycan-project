@@ -36,6 +36,8 @@ footer, header, hgroup, main, menu, nav, section {
     display: none;
 }
 body {
+  display: flex;
+  justify-content: center;
   font-family: 'Nanum Gothic', sans-serif;
   line-height: 1;
   background-color: ${(props) => props.theme.backgroundSubColor};
@@ -67,10 +69,14 @@ table {
 
 function App() {
   return (
-    <>
+    <div
+      onContextMenu={(e: any) => {
+        e.preventDefault();
+      }}
+    >
       <GlobalStyle />
       <Router />
-    </>
+    </div>
   );
 }
 

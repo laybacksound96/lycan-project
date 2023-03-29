@@ -1,40 +1,26 @@
 import styled from "styled-components";
-import CharSearchForm from "../components/ToDoFrame/CharSearchForm";
-import ToDoContainer from "../components/ToDoFrame/ToDoContainer";
+import ToDoColumn from "../components/ToDoFrame/Column/ToDoColumn";
+import CheckBoxRow from "../components/ToDoFrame/Row/CheckBoxRow";
+
+const Container = styled.div`
+  background-color: ${(props) => props.theme.backgroundColor};
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 720px;
+  height: 90%;
+  border-radius: 15px;
+  margin-top: 150px;
+  border-radius: 15px;
+`;
 
 function CheckBox() {
   return (
-    <MainFrame
-      onContextMenu={(e: any) => {
-        e.preventDefault();
-      }}
-    >
-      <HeaderFrame />
-      <ToDoFrame>
-        <CharSearchForm />
-        <ToDoContainer />
-      </ToDoFrame>
-    </MainFrame>
+    <Container>
+      <CheckBoxRow />
+      <ToDoColumn />
+    </Container>
   );
 }
 
 export default CheckBox;
-
-const MainFrame = styled.div`
-  width: 100vw;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-`;
-const ToDoFrame = styled.div`
-  background-color: ${(props) => props.theme.backgroundColor};
-  border-radius: 15px;
-  width: 720px;
-`;
-
-const HeaderFrame = styled.div`
-  width: inherit;
-  height: 150px;
-`;
