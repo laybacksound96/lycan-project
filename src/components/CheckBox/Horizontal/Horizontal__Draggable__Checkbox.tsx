@@ -32,7 +32,9 @@ function Checkbox({ isChecked, index, boardIndex }: ICheckboxProps) {
       const prevCopy = [...prev];
       const charactorCopy = { ...prevCopy[boardIndex] };
       const checkCopy = [...charactorCopy.Check];
-      console.log(checkCopy);
+      const checkBoxCopy = { ...checkCopy[index] };
+      checkBoxCopy.isChecked = isClicked;
+
       return prev;
     });
   }
