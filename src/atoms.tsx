@@ -24,7 +24,7 @@ export const CharacterState = atom<ICharacter[]>({
     {
       CharacterName: "a",
       Check: [
-        { checkName: "A", isChecked: true },
+        { checkName: "A", isChecked: false },
         { checkName: "B", isChecked: false },
         { checkName: "C", isChecked: false },
         { checkName: "D", isChecked: false },
@@ -36,19 +36,19 @@ export const CharacterState = atom<ICharacter[]>({
       Check: [
         { checkName: "A", isChecked: false },
         { checkName: "B", isChecked: false },
-        { checkName: "C", isChecked: true },
-        { checkName: "D", isChecked: true },
+        { checkName: "C", isChecked: false },
+        { checkName: "D", isChecked: false },
         { checkName: "E", isChecked: false },
       ],
     },
     {
       CharacterName: "c",
       Check: [
-        { checkName: "A", isChecked: true },
+        { checkName: "A", isChecked: false },
         { checkName: "B", isChecked: false },
         { checkName: "C", isChecked: false },
-        { checkName: "D", isChecked: true },
-        { checkName: "E", isChecked: true },
+        { checkName: "D", isChecked: false },
+        { checkName: "E", isChecked: false },
       ],
     },
   ],

@@ -1,7 +1,9 @@
 import { faSquare, faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
+import { CharacterState } from "../../../atoms";
 // @todo2 width는 Row쪽 witdh와 공유해야 함
 const ShareWidthDiv = styled.div`
   display: flex;
@@ -18,12 +20,23 @@ const ShareWidthDiv = styled.div`
 interface ICheckboxProps {
   key: string;
   isChecked: boolean;
+  index: number;
+  boardIndex: number;
 }
-function Checkbox({ isChecked }: ICheckboxProps) {
+function Checkbox({ isChecked, index, boardIndex }: ICheckboxProps) {
   const [isClicked, setIsClicked] = useState(isChecked);
+  const setChars = useSetRecoilState(CharacterState);
   function CheckBox_Onclick() {
     setIsClicked(!isClicked);
+    setChars((prev) => {
+      const prevCopy = [...prev];
+      const charactorCopy = { ...prevCopy[boardIndex] };
+      const checkCopy = [...charactorCopy.Check];
+      console.log(checkCopy);
+      return prev;
+    });
   }
+
   return (
     <ShareWidthDiv onClick={CheckBox_Onclick}>
       {isClicked ? (

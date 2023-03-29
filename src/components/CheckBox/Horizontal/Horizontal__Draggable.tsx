@@ -16,6 +16,7 @@ interface INameProps {
 }
 
 function Horizontal__Draggable({ boardId, value, check, index }: INameProps) {
+  const boardIndex = index;
   return (
     <Draggable draggableId={boardId} index={index}>
       {(provided) => (
@@ -26,8 +27,13 @@ function Horizontal__Draggable({ boardId, value, check, index }: INameProps) {
         >
           <Name {...provided.dragHandleProps}>{value}</Name>
 
-          {check.map((check) => (
-            <Checkbox key={check.checkName} isChecked={check.isChecked} />
+          {check.map((check, index) => (
+            <Checkbox
+              key={check.checkName}
+              isChecked={check.isChecked}
+              index={index}
+              boardIndex={boardIndex}
+            />
           ))}
         </NameBox>
       )}
