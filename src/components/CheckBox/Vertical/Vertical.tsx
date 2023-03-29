@@ -11,7 +11,7 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { CharacterState, RowState } from "../../../atoms";
 
-import RowCard from "./Vetical__card";
+import RowCard from "./Vertical__card";
 
 function AxisLocker(style: DraggingStyle | NotDraggingStyle) {
   if (style?.transform) {

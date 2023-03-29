@@ -6,7 +6,7 @@ import {
 } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { ICheck } from "../../../atoms";
-import Checkbox from "./CheckBox";
+import Checkbox from "./Horizontal__Draggable__Checkbox";
 
 interface INameProps {
   boardId: string;
@@ -15,7 +15,7 @@ interface INameProps {
   check: ICheck[];
 }
 
-function DraggableName({ boardId, value, check, index }: INameProps) {
+function Horizontal__Draggable({ boardId, value, check, index }: INameProps) {
   return (
     <Draggable draggableId={boardId} index={index}>
       {(provided) => (
@@ -62,4 +62,4 @@ const NameBox = styled.div`
   display: flex;
 `;
 
-export default React.memo(DraggableName);
+export default React.memo(Horizontal__Draggable);

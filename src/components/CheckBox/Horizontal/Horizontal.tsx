@@ -2,9 +2,9 @@ import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { useSetRecoilState } from "recoil";
 import { CharacterState } from "../../../atoms";
 
-import DroppableSpace from "./DroppableSpace";
+import DroppableSpace from "./Horizontal__Droppable";
 
-function ToDoColumn() {
+function Horizontal() {
   const setChars = useSetRecoilState(CharacterState);
   const onDragEnd = (info: DropResult) => {
     const { destination, source } = info;
@@ -26,4 +26,4 @@ function ToDoColumn() {
     </DragDropContext>
   );
 }
-export default ToDoColumn;
+export default Horizontal;

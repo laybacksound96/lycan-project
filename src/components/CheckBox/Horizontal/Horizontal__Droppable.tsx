@@ -3,13 +3,13 @@ import { Droppable } from "react-beautiful-dnd";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { CharacterState } from "../../../atoms";
-import DraggableName from "./DraggableName";
+import DraggableName from "./Horizontal__Draggable";
 
 interface ICardProps {
   boardId: string;
 }
 
-function DroppableSpace({ boardId }: ICardProps) {
+function Horizontal__Droppable({ boardId }: ICardProps) {
   const user = useRecoilValue(CharacterState);
   return (
     <Droppable droppableId={boardId}>
@@ -39,4 +39,4 @@ const Area = styled.div`
   transition: background-color 0.2s ease-in-out;
 `;
 
-export default React.memo(DroppableSpace);
+export default React.memo(Horizontal__Droppable);
