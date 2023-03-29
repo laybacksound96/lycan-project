@@ -6,16 +6,16 @@ import DroppableSpace from "./Horizontal__Droppable";
 
 function Horizontal() {
   const setChars = useSetRecoilState(CharacterState);
-  const onDragEnd = (info: DropResult) => {
-    const { destination, source } = info;
+  const onDragEnd = (dragInfo: DropResult) => {
+    const { destination, source } = dragInfo;
     if (!destination) return;
     if (destination?.droppableId === source.droppableId) {
       setChars((prev) => {
-        const boardCopy = [...prev];
-        const copiedObject = { ...boardCopy[source.index] };
-        boardCopy.splice(source.index, 1);
-        boardCopy.splice(destination?.index, 0, copiedObject);
-        return [...boardCopy];
+        const charStateCopy = [...prev];
+        const copiedObject = { ...charStateCopy[source.index] };
+        charStateCopy.splice(source.index, 1);
+        charStateCopy.splice(destination?.index, 0, copiedObject);
+        return [...charStateCopy];
       });
     }
     return;
