@@ -1,6 +1,6 @@
 import { faSquare, faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { CharacterState } from "../../../atoms";
