@@ -31,7 +31,7 @@ function Horizontal__Draggable({ boardId, value, check, index }: INameProps) {
             <Checkbox
               key={check.checkName}
               isChecked={check.isChecked}
-              index={index}
+              BoxIndex={index}
               boardIndex={boardIndex}
             />
           ))}

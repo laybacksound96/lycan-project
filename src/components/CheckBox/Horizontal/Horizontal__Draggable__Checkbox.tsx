@@ -1,7 +1,9 @@
 import { faSquare, faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { CharacterState } from "../../../atoms";
 
 // @todo2 width는 Row쪽 witdh와 공유해야 함
 const ShareWidthDiv = styled.div`
@@ -19,19 +21,38 @@ const ShareWidthDiv = styled.div`
 interface ICheckboxProps {
   key: string;
   isChecked: boolean;
-  index: number;
+  BoxIndex: number;
   boardIndex: number;
 }
-function Checkbox({ isChecked, index, boardIndex }: ICheckboxProps) {
-  const [isClicked, setIsClicked] = useState(isChecked);
+function Checkbox({ isChecked, BoxIndex, boardIndex }: ICheckboxProps) {
+  const [Chars, setCharacterState] = useRecoilState(CharacterState);
+  const updateCharacterState = useCallback(() => {
+    setCharacterState((prev) => {
+      const newCharacterState = [...prev];
+      const newCheck = newCharacterState[boardIndex].Check.map(
+        (check, index) => {
+          if (BoxIndex === index) {
+            return { ...check, isChecked: !check.isChecked };
+          } else {
+            return check;
+          }
+        }
+      );
+      newCharacterState[boardIndex] = {
+        ...newCharacterState[boardIndex],
+        Check: newCheck,
+      };
+      return newCharacterState;
+    });
+  }, [BoxIndex, boardIndex, setCharacterState]);
 
   function CheckBox_Onclick() {
-    setIsClicked(!isClicked);
+    updateCharacterState();
   }
 
   return (
     <ShareWidthDiv onClick={CheckBox_Onclick}>
-      {isClicked ? (
+      {Chars[boardIndex].Check[BoxIndex].isChecked ? (
         <FontAwesomeIcon icon={faSquareCheck} size="lg" />
       ) : (
         <FontAwesomeIcon icon={faSquare} size="lg" />
